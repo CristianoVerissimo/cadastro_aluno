@@ -23,30 +23,30 @@ def listar_cursos():
     lista = []
     with con:
         cur = con.cursor()
-        cur.execute('SELECT * FROM cursos')
+        cur.execute('SELECT * FROM Cursos')
         linha = cur.fetchall()
         
         for i in linha:
             lista.append(i)
     return lista
 
-#print(listar_cursos())
+print(listar_cursos())
 
 #Atualizar Cursos
 def atualizar_cursos(i):
     with con:
         cur = con.cursor()
-        query = "UPDATE cursos SET nome=?, duracao=?, preco=? WHERE id=?"
+        query = "UPDATE Cursos SET nome=?, duracao=?, preco=? WHERE id=?"
         cur.execute(query,i)
 
-l = ['Violão', '2 Semanas', 10.0, 1]        
+l = ['Violão', 'Tres Semanas', 10.0, 1]        
 #atualizar_cursos(l)
 
 #Deletar Cursos
 def deletar_cursos(i):
     with con:
         cur = con.cursor()
-        query = "DELETE FROM cursos WHERE id=?"
+        query = "DELETE FROM Cursos WHERE id=?"
         cur.execute(query,i)
         
-deletar_cursos([1])
+#deletar_cursos([1])
