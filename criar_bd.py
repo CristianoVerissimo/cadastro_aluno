@@ -49,7 +49,7 @@ try:
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT,
             data_nascimento DATE,
-            telefone TEXT
+            telefone TEXT,
             endereco TEXT,
             email TEXT,
             sexo TEXT,
