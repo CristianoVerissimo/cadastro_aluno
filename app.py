@@ -8,7 +8,7 @@ app = FastAPI()
 async def index():
     with sqlite3.connect('cadastro_alunos.db') as con:
         cur = con.cursor()
-        query = 'SELECT * FROM Cursos'
+        query = 'SELECT * FROM cursos'
         cur.execute(query)
         data = cur.fetchall()
         
