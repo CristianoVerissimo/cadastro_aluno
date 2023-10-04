@@ -54,5 +54,42 @@ app_lg = ImageTk.PhotoImage(app_lg)
 app_logo = Label(frame_logo, image=app_lg, text="Gerenciador de Cursos", width=850, compound=LEFT, relief=RAISED, anchor=NW, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
 app_logo.place(x=0, y=0)
 
+#Função
+def control(i):
+    pass
+
+#Corpo
+#Botões
+#Novo Aluno
+app_img_cadastro_aluno = Image.open('./imagens/icon_add_aluno.png')
+app_img_cadastro_aluno = app_img_cadastro_aluno.resize((30,30))
+app_img_cadastro_aluno = ImageTk.PhotoImage(app_img_cadastro_aluno)
+app_cadastro = Label(frame_botoes, image=app_img_cadastro_aluno, text="Criar Novo Aluno", width=425, compound=LEFT, relief=RAISED, anchor=N, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
+app_cadastro.place(x=0, y=0)
+
+#Novo Curso
+app_img_cadastro_curso = Image.open('./imagens/icon_add_curso.png')
+app_img_cadastro_curso = app_img_cadastro_curso.resize((30,30))
+app_img_cadastro_curso = ImageTk.PhotoImage(app_img_cadastro_curso)
+app_cadastro = Label(frame_botoes, image=app_img_cadastro_curso, text="Criar Novo Curso", width=425, compound=LEFT, relief=RAISED, anchor=N, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
+app_cadastro.place(x=425, y=0)
+
+#Procurar Aluno
+app_img_procurar_aluno = Image.open('./imagens/icon_procurar_aluno.png')
+app_img_procurar_aluno = app_img_procurar_aluno.resize((30,30))
+app_img_procurar_aluno = ImageTk.PhotoImage(app_img_procurar_aluno)
+app_cadastro = Label(frame_botoes, image=app_img_procurar_aluno, text="Procurar Aluno", width=425, compound=LEFT, relief=RAISED, anchor=N, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
+app_cadastro.place(x=0, y=33)
+
+#Procurar Curso
+app_img_procurar_curso = Image.open('./imagens/icon_procurar_curso.png')
+app_img_procurar_curso = app_img_procurar_curso.resize((30,30))
+app_img_procurar_curso = ImageTk.PhotoImage(app_img_procurar_curso)
+app_cadastro = Label(frame_botoes, image=app_img_procurar_curso, text="Procurar Aluno", width=425, compound=LEFT, relief=RAISED, anchor=N, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
+app_cadastro.place(x=425, y=33)
+
+
+
+
 # Executando a janela
 janela.mainloop()
