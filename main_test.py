@@ -40,11 +40,11 @@ frame_botoes.grid(row=2, column=0, pady=0, padx=0, sticky=NSEW)
 
 ttk.Separator(janela, orient=HORIZONTAL).grid(row=3, columnspan=1, ipadx=680)
 
-frame_detalhes = Frame(janela, width=850, height=250, bg=cor4)
+frame_detalhes = Frame(janela, width=850, height=250, bg=cor1)
 frame_detalhes.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
-frame_tabela = Frame(janela, width=850, height=250, bg=cor3)
-frame_tabela.grid(row=5, column=0, pady=0, padx=0, sticky=NSEW)
+frame_tabela = Frame(janela, width=850, height=250, bg=cor1)
+frame_tabela.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
 
 #Logo
@@ -54,6 +54,18 @@ app_lg = ImageTk.PhotoImage(app_lg)
 app_logo = Label(frame_logo, image=app_lg, text="Gerenciador de Cursos", width=850, compound=LEFT, relief=RAISED, anchor=NW, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
 app_logo.place(x=0, y=0)
 
+#Logo instituição Janela "main"
+#Logo
+app_lg = Image.open('./imagens/sua_logo.png')
+app_lg = app_lg.resize((200,200))
+app_lg = ImageTk.PhotoImage(app_lg)
+app_logo = Label(frame_detalhes, image=app_lg, width=850, height=300, bg=cor1)
+app_logo.place(x=0, y=1)
+
+#Nome instituição janela "main"
+app_logo = Label(frame_tabela, text="NOME DA INSTITUIÇÃO", font=('Ivy 40 bold'), fg=cor0, bg=cor1)
+app_logo.place(x=80, y=100)
+
 #Função Cadastro aluno
 def cadastrar_aluno():
     print('cadastrar_aluno')
@@ -61,8 +73,7 @@ def cadastrar_aluno():
     
 #Função Cadastro Curso
 def cadastrar_curso():
-    frame_tabela_curso = Frame(frame_tabela, frame_detalhes, width=850, height=620, bg=cor0)
-    frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+    print('cadastrar_curso')
     
 #Função ver aluno
 def procurar_aluno():

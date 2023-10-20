@@ -10,7 +10,7 @@ import PIL
 from PIL import ImageTk, Image
 
 # Cores
-cor0 = "#2e2d2b"  # Preta
+cor0 = "#000000"  # Preta
 cor1 = "#feffff"  # Branca   
 cor2 = "#e5e5e5"  # Cinza
 cor3 = "#3CB371"  # Verde
@@ -40,11 +40,8 @@ frame_botoes.grid(row=2, column=0, pady=0, padx=0, sticky=NSEW)
 
 ttk.Separator(janela, orient=HORIZONTAL).grid(row=3, columnspan=1, ipadx=680)
 
-frame_detalhes = Frame(janela, width=850, height=200, bg=cor1)
-frame_detalhes.grid(row=4, column=0, pady=0, padx=10, sticky=NSEW)
-
-frame_tabela = Frame(janela, width=850, height=200, bg=cor1)
-frame_tabela.grid(row=5, column=0, pady=0, padx=10, sticky=NSEW)
+frame_tabela = Frame(janela, width=850, height=620, bg=cor3)
+frame_tabela.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
 
 #Logo
@@ -56,21 +53,164 @@ app_logo.place(x=0, y=0)
 
 #Função Cadastro aluno
 def cadastrar_aluno():
-    print('cadastrar_aluno')
+    frame_tabela_aluno = Frame(frame_tabela, width=850, height=620, bg=cor1)
+    frame_tabela_aluno.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+
+    l_nome_aluno = Label(frame_tabela, text="Nome do aluno *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_nome_aluno.place(x=4, y=10)
+    e_nome_aluno = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_nome_aluno.place(x=7, y=40)
+    
+    l_data_nascimento = Label(frame_tabela, text="Data de Nascimento *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_data_nascimento.place(x=4, y=70)
+    e_data_nascimento = Entry(frame_tabela, width=20, justify='left', relief='solid')
+    e_data_nascimento.place(x=7, y=100)
+    
+    l_telefone = Label(frame_tabela, text="Telefone", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_telefone.place(x=4, y=130)
+    e_telefone = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_telefone.place(x=7, y=160)
+    
+    l_endereco = Label(frame_tabela, text="Endereço", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_endereco.place(x=4, y=190)
+    e_endereco = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_endereco.place(x=7, y=220)
+    
+    l_email = Label(frame_tabela, text="Email", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_email.place(x=500, y=190)
+    e_email = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_email.place(x=500, y=220)
+    
+    l_sexo = Label(frame_tabela, text="Sexo", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_sexo.place(x=500, y=7)
+    e_sexo = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_sexo.place(x=500, y=40)
+    
+    l_foto = Label(frame_tabela, text="Foto", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_foto.place(x=500, y=70)
+    e_foto = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_foto.place(x=500, y=100)
+    
+    l_cpf = Label(frame_tabela, text="CPF (Opcional)", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_cpf.place(x=500, y=130)
+    e_cpf = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_cpf.place(x=500, y=160)
+    
+    
+    botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_salvar.place(x=7, y=300)
+
+#cadastrar_aluno() 
     
     
 #Função Cadastro Curso
 def cadastrar_curso():
-    print('cadastrar_curso')
+    frame_tabela_curso = Frame(frame_tabela, width=850, height=620, bg=cor1)
+    frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+
+    l_nome_curso = Label(frame_tabela, text="Nome do curso *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_nome_curso.place(x=4, y=10)
+    e_nome_curso = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_nome_curso.place(x=7, y=40)
+    
+    l_duracao = Label(frame_tabela, text="Duração *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_duracao.place(x=4, y=70)
+    e_duracao = Entry(frame_tabela, width=20, justify='left', relief='solid')
+    e_duracao.place(x=7, y=100)
+    
+    l_preco = Label(frame_tabela, text="Preço *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_preco.place(x=4, y=130)
+    e_preco = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_preco.place(x=7, y=160)
+    
+    l_professor = Label(frame_tabela, text="Professor", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_professor.place(x=4, y=190)
+    e_professor = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_professor.place(x=7, y=220)
+    
+    
+    botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_salvar.place(x=7, y=290)
+
+#cadastrar_curso()    
     
 #Função ver aluno
 def procurar_aluno():
-    print('procurar_aluno')
+    frame_tabela_aluno = Frame(frame_tabela, width=850, height=620, bg=cor1)
+    frame_tabela_aluno.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+    
+    app_nome = Label(frame_tabela_aluno, text="Tabela de Alunos", height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+    app_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+
+    list_header = ['Nome','Data de Nascimento','Telefone','Curso']
+
+    df_list = []
+
+    global tree_aluno
+
+    tree_aluno = ttk.Treeview(frame_tabela_aluno, selectmode="extended",columns=list_header, show="headings")
+
+    vsb = ttk.Scrollbar(frame_tabela_aluno, orient="vertical", command=tree_aluno.yview)
+    hsb = ttk.Scrollbar(frame_tabela_aluno, orient="horizontal", command=tree_aluno.xview)
+
+    tree_aluno.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    tree_aluno.grid(column=0, row=1, sticky='nsew')
+    vsb.grid(column=1, row=1, sticky='ns')
+    hsb.grid(column=0, row=2, sticky='ew')
+    frame_tabela_aluno.grid_rowconfigure(0, weight=12)
+
+    hd=["nw","nw","e","e"]
+    h=[208,150,80,160]
+    n=0
+
+    for col in list_header:
+        tree_aluno.heading(col, text=col.title(), anchor=NW)
+        tree_aluno.column(col, width=h[n],anchor=hd[n])
+
+    n+=1
+
+    for item in df_list:
+        tree_aluno.insert('', 'end', values=item)
     
     
 #Função ver Curso
 def procurar_curso():
-    print('procurar_curso')
+    frame_tabela_curso = Frame(frame_tabela, width=850, height=620, bg=cor1)
+    frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+    
+    app_nome = Label(frame_tabela_curso, text="Tabela de Cursos", height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+    app_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+
+    list_header = ['ID','Curso','Duração','Preço', 'Professor']
+
+    df_list = []
+
+    global tree_curso
+
+    tree_curso = ttk.Treeview(frame_tabela_curso, selectmode="extended",columns=list_header, show="headings")
+
+    vsb = ttk.Scrollbar(frame_tabela_curso, orient="vertical", command=tree_curso.yview)
+    hsb = ttk.Scrollbar(frame_tabela_curso, orient="horizontal", command=tree_curso.xview)
+
+    tree_curso.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    tree_curso.grid(column=0, row=1, sticky='nsew')
+    vsb.grid(column=1, row=1, sticky='ns')
+    hsb.grid(column=0, row=2, sticky='ew')
+    frame_tabela_curso.grid_rowconfigure(0, weight=12)
+
+    hd=["nw","nw","e","e"]
+    h=[167,150,80,160]
+    n=0
+
+    for col in list_header:
+        tree_curso.heading(col, text=col.title(), anchor=NW)
+        tree_curso.column(col, width=h[n],anchor=hd[n])
+
+    n+=1
+
+    for item in df_list:
+        tree_curso.insert('', 'end', values=item)
+#procurar_curso() ///////////////////////////////////
     
 #Função Salvamento
 def salvar():
@@ -82,38 +222,26 @@ def deletar():
 
 #Função
 def control(i):
-    #Cadastro de aluno
-    if i == 'cadastrar_aluno':
-        for widget in frame_detalhes.winfo_children():
-            widget.destroy()
-            
+    #Cadastro de Aluno
+    if i == 'cadastrar_aluno':            
         for widget in frame_tabela.winfo_children():
             widget.destroy()
         cadastrar_aluno()
         
     #Cadastro de Curso   
     if i == 'cadastrar_curso':
-        for widget in frame_detalhes.winfo_children():
-            widget.destroy()
-            
         for widget in frame_tabela.winfo_children():
             widget.destroy()
         cadastrar_curso()
 
     #Procurar aluno
     if i == 'procurar_aluno':
-        for widget in frame_detalhes.winfo_children():
-            widget.destroy()
-            
         for widget in frame_tabela.winfo_children():
             widget.destroy()
         procurar_aluno()
         
-    #Cadastro de Curso   
-    if i == 'procurar_curso':
-        for widget in frame_detalhes.winfo_children():
-            widget.destroy()
-            
+    #Procurar Curso   
+    if i == 'procurar_curso':  
         for widget in frame_tabela.winfo_children():
             widget.destroy()
         procurar_curso()

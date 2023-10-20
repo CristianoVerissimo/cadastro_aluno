@@ -44,7 +44,7 @@ frame_detalhes = Frame(janela, width=850, height=250, bg=cor4)
 frame_detalhes.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
 frame_tabela = Frame(janela, width=850, height=250, bg=cor3)
-frame_tabela.grid(row=5, column=0, pady=0, padx=0, sticky=NSEW)
+frame_tabela.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
 
 #Logo
@@ -61,8 +61,33 @@ def cadastrar_aluno():
     
 #Função Cadastro Curso
 def cadastrar_curso():
-    frame_tabela_curso = Frame(frame_tabela, frame_detalhes, width=850, height=620, bg=cor0)
+    frame_tabela_curso = Frame(frame_tabela, frame_detalhes, width=850, height=620, bg=cor1)
     frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+
+    l_nome_curso = Label(frame_tabela, text="Nome do curso *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_nome_curso.place(x=4, y=10)
+    e_nome_curso = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_nome_curso.place(x=7, y=40)
+    
+    l_duracao = Label(frame_tabela, text="Duração *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_duracao.place(x=4, y=70)
+    e_duracao = Entry(frame_tabela, width=20, justify='left', relief='solid')
+    e_duracao.place(x=7, y=100)
+    
+    l_preco = Label(frame_tabela, text="Preço *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_preco.place(x=4, y=130)
+    e_preco = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_preco.place(x=7, y=160)
+    
+    l_professor = Label(frame_tabela, text="Professor", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_professor.place(x=4, y=190)
+    e_professor = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_professor.place(x=7, y=220)
+    
+    
+    botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_salvar.place(x=7, y=290)
+    
     
 #Função ver aluno
 def procurar_aluno():
@@ -71,7 +96,42 @@ def procurar_aluno():
     
 #Função ver Curso
 def procurar_curso():
-    print('procurar_curso')
+    frame_tabela_curso = Frame(frame_tabela, frame_detalhes, width=850, height=620, bg=cor1)
+    frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+    
+    app_nome = Label(frame_tabela_curso, text="Tabela de Cursos", height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+    app_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+
+    list_header = ['ID','Curso','Duração','Preço', 'Professor']
+
+    df_list = []
+
+    global tree_curso
+
+    tree_curso = ttk.Treeview(frame_tabela_curso, selectmode="extended",columns=list_header, show="headings")
+
+    vsb = ttk.Scrollbar(frame_tabela_curso, orient="vertical", command=tree_curso.yview)
+    hsb = ttk.Scrollbar(frame_tabela_curso, orient="horizontal", command=tree_curso.xview)
+
+    tree_curso.configure(yscrollcommand=vsb.set, xscrollcommand=hsb.set)
+    tree_curso.grid(column=0, row=1, sticky='nsew')
+    vsb.grid(column=1, row=1, sticky='ns')
+    hsb.grid(column=0, row=2, sticky='ew')
+    frame_tabela_curso.grid_rowconfigure(0, weight=12)
+
+    hd=["nw","nw","e","e"]
+    h=[170,150,80,160]
+    n=0
+
+    for col in list_header:
+        tree_curso.heading(col, text=col.title(), anchor=NW)
+        tree_curso.column(col, width=h[n],anchor=hd[n])
+
+    n+=1
+
+    for item in df_list:
+        tree_curso.insert('', 'end', values=item)
+#procurar_curso() ///////////////////////////////////
     
 #Função Salvamento
 def salvar():
