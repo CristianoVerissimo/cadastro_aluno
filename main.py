@@ -9,6 +9,10 @@ from tkinter import filedialog as fd
 import PIL
 from PIL import ImageTk, Image
 
+#Calendario
+from tkcalendar import Calendar, DateEntry
+from datetime import date
+
 # Cores
 cor0 = "#000000"  # Preta
 cor1 = "#feffff"  # Branca   
@@ -51,6 +55,7 @@ app_lg = ImageTk.PhotoImage(app_lg)
 app_logo = Label(frame_logo, image=app_lg, text="Gerenciador de Cursos", width=850, compound=LEFT, relief=RAISED, anchor=NW, font=('Ivy 15 bold'), bg=cor6, fg=cor1)
 app_logo.place(x=0, y=0)
 
+
 #Função Cadastro aluno
 def cadastrar_aluno():
     frame_tabela_aluno = Frame(frame_tabela, width=850, height=620, bg=cor1)
@@ -63,12 +68,12 @@ def cadastrar_aluno():
     
     l_data_nascimento = Label(frame_tabela, text="Data de Nascimento *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_data_nascimento.place(x=4, y=70)
-    e_data_nascimento = Entry(frame_tabela, width=20, justify='left', relief='solid')
+    e_data_nascimento = Entry(frame_tabela, width=35, justify='left', relief='solid')
     e_data_nascimento.place(x=7, y=100)
     
     l_telefone = Label(frame_tabela, text="Telefone", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_telefone.place(x=4, y=130)
-    e_telefone = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_telefone = Entry(frame_tabela, width=35, justify='left', relief='solid')
     e_telefone.place(x=7, y=160)
     
     l_endereco = Label(frame_tabela, text="Endereço", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
@@ -77,26 +82,21 @@ def cadastrar_aluno():
     e_endereco.place(x=7, y=220)
     
     l_email = Label(frame_tabela, text="Email", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
-    l_email.place(x=500, y=190)
+    l_email.place(x=500, y=130)
     e_email = Entry(frame_tabela, width=35, justify='left', relief='solid')
-    e_email.place(x=500, y=220)
+    e_email.place(x=500, y=160)
     
     l_sexo = Label(frame_tabela, text="Sexo", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_sexo.place(x=500, y=7)
     e_sexo = Entry(frame_tabela, width=35, justify='left', relief='solid')
     e_sexo.place(x=500, y=40)
     
-    l_foto = Label(frame_tabela, text="Foto", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
-    l_foto.place(x=500, y=70)
-    e_foto = Entry(frame_tabela, width=35, justify='left', relief='solid')
-    e_foto.place(x=500, y=100)
+    l_cpf = Label(frame_tabela, text="CPF", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
+    l_cpf.place(x=500, y=70)
+    e_cpf = Entry(frame_tabela, width=35, justify='left', relief='solid')
+    e_cpf.place(x=500, y=100)
     
-    l_cpf = Label(frame_tabela, text="CPF (Opcional)", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
-    l_cpf.place(x=500, y=130)
-    e_cpf = Entry(frame_tabela, width=10, justify='left', relief='solid')
-    e_cpf.place(x=500, y=160)
-    
-    
+       
     botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
     botao_salvar.place(x=7, y=300)
 
@@ -115,12 +115,12 @@ def cadastrar_curso():
     
     l_duracao = Label(frame_tabela, text="Duração *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_duracao.place(x=4, y=70)
-    e_duracao = Entry(frame_tabela, width=20, justify='left', relief='solid')
+    e_duracao = Entry(frame_tabela, width=35, justify='left', relief='solid')
     e_duracao.place(x=7, y=100)
     
     l_preco = Label(frame_tabela, text="Preço *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_preco.place(x=4, y=130)
-    e_preco = Entry(frame_tabela, width=10, justify='left', relief='solid')
+    e_preco = Entry(frame_tabela, width=35, justify='left', relief='solid')
     e_preco.place(x=7, y=160)
     
     l_professor = Label(frame_tabela, text="Professor", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
@@ -133,6 +133,7 @@ def cadastrar_curso():
     botao_salvar.place(x=7, y=290)
 
 #cadastrar_curso()    
+
     
 #Função ver aluno
 def procurar_aluno():
@@ -171,7 +172,9 @@ def procurar_aluno():
 
     for item in df_list:
         tree_aluno.insert('', 'end', values=item)
-    
+
+#procurar_aluno()    
+
     
 #Função ver Curso
 def procurar_curso():
@@ -211,6 +214,8 @@ def procurar_curso():
     for item in df_list:
         tree_curso.insert('', 'end', values=item)
 #procurar_curso() ///////////////////////////////////
+
+
     
 #Função Salvamento
 def salvar():
