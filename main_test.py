@@ -40,10 +40,7 @@ frame_botoes.grid(row=2, column=0, pady=0, padx=0, sticky=NSEW)
 
 ttk.Separator(janela, orient=HORIZONTAL).grid(row=3, columnspan=1, ipadx=680)
 
-frame_detalhes = Frame(janela, width=850, height=250, bg=cor1)
-frame_detalhes.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
-
-frame_tabela = Frame(janela, width=850, height=250, bg=cor1)
+frame_tabela = Frame(janela, width=850, height=620, bg=cor1)
 frame_tabela.grid(row=4, column=0, pady=0, padx=0, sticky=NSEW)
 
 
@@ -57,14 +54,10 @@ app_logo.place(x=0, y=0)
 #Logo instituição Janela "main"
 #Logo
 app_lg = Image.open('./imagens/sua_logo.png')
-app_lg = app_lg.resize((200,200))
+app_lg = app_lg.resize((300,300))
 app_lg = ImageTk.PhotoImage(app_lg)
-app_logo = Label(frame_detalhes, image=app_lg, width=850, height=300, bg=cor1)
-app_logo.place(x=0, y=1)
-
-#Nome instituição janela "main"
-app_logo = Label(frame_tabela, text="NOME DA INSTITUIÇÃO", font=('Ivy 40 bold'), fg=cor0, bg=cor1)
-app_logo.place(x=80, y=100)
+app_logo = Label(frame_tabela, image=app_lg, width=850, height=620, bg=cor1)
+app_logo.place(x=0, y=-50)
 
 #Função Cadastro aluno
 def cadastrar_aluno():
