@@ -170,8 +170,13 @@ def procurar_aluno():
     frame_tabela_aluno = Frame(frame_tabela, width=850, height=620, bg=cor1)
     frame_tabela_aluno.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
     
-    app_nome = Label(frame_tabela_aluno, text="Tabela de Alunos", height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
-    app_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+    l_nome = Label(frame_tabela_aluno, text="Procurar Aluno: ", height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+    l_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+    e_nome = Entry(frame_tabela_aluno, width=30, justify='left', relief='solid', font=('Ivy 10'))
+    e_nome.place(x=125, y=8)
+    
+    botao_procurar = Button(frame_tabela, anchor=CENTER, text='Procurar', width=8, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_procurar.place(x=380, y=6)
 
     list_header = ['Nome','Data de Nascimento','Telefone','Curso']
 
@@ -211,8 +216,13 @@ def procurar_curso():
     frame_tabela_curso = Frame(frame_tabela, width=850, height=620, bg=cor1)
     frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
     
-    app_nome = Label(frame_tabela_curso, text="Tabela de Cursos", height=1,pady=0, padx=0, relief="flat", anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
-    app_nome.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+    l_curso = Label(frame_tabela_curso, text="Procurar Curso: ", height=1, anchor=NW, font=('Ivy 10 bold'), bg=cor1, fg=cor4)
+    l_curso.grid(row=0, column=0, padx=0, pady=10, sticky=NSEW)
+    e_procurar_curso = Entry(frame_tabela_curso, width=30, justify='left', relief='solid', font=('Ivy 10'))
+    e_procurar_curso.place(x=125, y=8)
+    
+    botao_procurar = Button(frame_tabela, anchor=CENTER, text='Procurar', width=8, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_procurar.place(x=380, y=6)
 
     list_header = ['ID','Curso','Duração','Preço', 'Professor']
 
