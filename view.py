@@ -10,11 +10,12 @@ except lite.Error as e:
     
 # ////////////////////Tabela de Cursos////////////////////
 
+
 # Criar Curso
 def criar_curso(i):
     with con:
         cur = con.cursor()
-        query = "INSERT INTO cursos (nome, duracao, preco) VALUES (?, ?, ?)"
+        query = "INSERT INTO cursos (nome, duracao, preco, professor) VALUES (?, ?, ?, ?)"
         cur.execute(query, i)
 
 # Listar Cursos
@@ -33,7 +34,7 @@ def listar_cursos():
 def atualizar_curso(i):
     with con:
         cur = con.cursor()
-        query = "UPDATE cursos SET nome=?, duracao=?, preco=? WHERE id=?"
+        query = "UPDATE cursos SET nome=?, duracao=?, preco=?, WHERE id=?"
         cur.execute(query, i)
 
 l = ['Violão', 'Tres Semanas', 10.0, 1]        

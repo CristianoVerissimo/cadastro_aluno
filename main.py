@@ -13,6 +13,8 @@ from PIL import ImageTk, Image
 from tkcalendar import Calendar, DateEntry
 from datetime import date
 
+from view import *
+
 # Cores
 cor0 = "#000000"  # Preta
 cor1 = "#feffff"  # Branca   
@@ -129,14 +131,35 @@ def cadastrar_aluno():
           
     botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
     botao_salvar.place(x=7, y=300)
-
-#cadastrar_aluno() 
     
     
 #Função Cadastro Curso
 def cadastrar_curso():
     frame_tabela_curso = Frame(frame_tabela, width=850, height=620, bg=cor1)
     frame_tabela_curso.grid(row=0, column=0, pady=0, padx=0, sticky=NSEW)
+    
+    
+    def novo_curso():
+        nome = e_nome_curso.get()
+        duracao = e_duracao.get()
+        preco = e_preco.get()
+        professor = e_professor.get()
+        
+        lista = [nome, duracao, preco, professor]
+        
+        for i in lista:
+            if i == "":
+                messagebox.showerror('Erro!', 'Preencha todos os campos')
+                return
+        
+        criar_curso(lista)
+        messagebox.showinfo('Sucesso!', 'Curso criado com sucesso!')
+        
+        e_nome_curso.delete(0, END)
+        e_duracao.delete(0, END)
+        e_preco.delete(0, END)
+        e_professor.delete(0, END)
+        
 
     l_nome_curso = Label(frame_tabela, text="Nome do curso *", height=1, anchor=NW, font='Ivy 12', bg=cor1, fg=cor4)
     l_nome_curso.place(x=4, y=10)
@@ -159,10 +182,8 @@ def cadastrar_curso():
     e_professor.place(x=7, y=220)
     
     
-    botao_salvar = Button(frame_tabela, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
+    botao_salvar = Button(frame_tabela, command=novo_curso, anchor=CENTER, text='Salvar' .upper(), width=10, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
     botao_salvar.place(x=7, y=290)
-
-#cadastrar_curso()    
 
     
 #Função ver aluno
@@ -206,9 +227,7 @@ def procurar_aluno():
     n+=1
 
     for item in df_list:
-        tree_aluno.insert('', 'end', values=item)
-
-#procurar_aluno()    
+        tree_aluno.insert('', 'end', values=item) 
 
     
 #Função ver Curso
@@ -224,7 +243,7 @@ def procurar_curso():
     botao_procurar = Button(frame_tabela, anchor=CENTER, text='Procurar', width=8, overrelief=RIDGE, font=('Ivy 8 bold'), bg=cor3, fg=cor1)
     botao_procurar.place(x=380, y=6)
 
-    list_header = ['ID','Curso','Duração','Preço', 'Professor']
+    list_header = ['Curso','Duração','Preço', 'Professor']
 
     df_list = []
 
@@ -242,7 +261,7 @@ def procurar_curso():
     frame_tabela_curso.grid_rowconfigure(0, weight=12)
 
     hd=["nw","nw","e","e"]
-    h=[167,150,80,160]
+    h=[208,150,80,160]
     n=0
 
     for col in list_header:

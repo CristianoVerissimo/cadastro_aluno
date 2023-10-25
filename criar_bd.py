@@ -34,7 +34,6 @@ try:
             nome TEXT,
             nome_cursos TEXT,
             data_inicio DATE,
-            professor TEXT,
             FOREIGN KEY (nome_cursos) REFERENCES cursos (nome) ON UPDATE CASCADE ON DELETE CASCADE
         )""")
         
